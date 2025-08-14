@@ -6,10 +6,27 @@
   "scripts": {
     "start": "python -m http.server 8000 || npx serve . -s",
     "dev": "npx serve . -s -l 3000",
-    "build": "echo 'No build step required for static site'",
-    "test": "echo 'No tests specified'",
-    "lint": "echo 'No linting configured'",
-    "deploy": "echo 'Ready for deployment to static hosting'"
+    "build": "npm run optimize && npm run generate-sitemap",
+    "build:production": "npm run clean && npm run optimize:production && npm run generate-sitemap && npm run validate",
+    "build:staging": "npm run clean && npm run optimize && npm run generate-sitemap",
+    "build:preview": "npm run optimize && npm run generate-sitemap",
+    "clean": "rimraf dist reports",
+    "optimize": "npm run minify:css && npm run minify:js",
+    "optimize:production": "npm run minify:css:prod && npm run minify:js:prod && npm run optimize:images",
+    "minify:css": "cleancss -o css/main.min.css css/main.css css/components/*.css",
+    "minify:css:prod": "cleancss --s1 --compatibility ie8 -o css/main.min.css css/main.css css/components/*.css",
+    "minify:js": "terser js/main.js js/modules/*.js -o js/bundle.min.js --compress --mangle",
+    "minify:js:prod": "terser js/main.js js/modules/*.js -o js/bundle.min.js --compress --mangle --toplevel",
+    "optimize:images": "imagemin images/**/*.{jpg,jpeg,png,gif,svg} --out-dir=images/optimized --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant --plugin=imagemin-gifsicle --plugin=imagemin-svgo",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "validate": "html-validate **/*.html --config .htmlvalidate.json",
+    "test": "npm run validate && npm run lighthouse:ci",
+    "lighthouse:ci": "lhci autorun || echo 'Lighthouse CI not configured'",
+    "lint": "eslint js/**/*.js --fix || echo 'ESLint not configured'",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy",
+    "analyze": "npm run build && bundlesize",
+    "precommit": "npm run lint && npm run validate"
   },
   "keywords": [
     "adult-wellness",
@@ -43,6 +60,31 @@
     "not ie 11"
   ],
   "devDependencies": {
-    "serve": "^14.0.0"
-  }
+    "serve": "^14.0.0",
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.19.2",
+    "rimraf": "^5.0.1",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "html-validate": "^8.2.0",
+    "eslint": "^8.45.0",
+    "@lhci/cli": "^0.12.0",
+    "netlify-cli": "^15.10.0",
+    "bundlesize": "^0.18.2"
+  },
+  "bundlesize": [
+    {
+      "path": "css/main.min.css",
+      "maxSize": "50 kB",
+      "compression": "gzip"
+    },
+    {
+      "path": "js/bundle.min.js",
+      "maxSize": "100 kB",
+      "compression": "gzip"
+    }
+  ]
 }
