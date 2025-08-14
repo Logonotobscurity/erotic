@@ -660,7 +660,7 @@ window.shareArticle = function(articleId) {
     navigator.share({
       title: 'Erotica Lifestyle Wellness Article',
       text: 'Check out this wellness article from Erotica Lifestyle',
-      url: window.location.href + '#' + articleId,
+      url: window.location.href + '#' + articleId
     }).then(() => {
       if (typeof Notifications !== 'undefined') {
         Notifications.show('Article shared successfully!', 'success');

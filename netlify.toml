@@ -1,0 +1,151 @@
+# ====================================================================
+# NETLIFY DEPLOYMENT CONFIGURATION
+# For Erotica Lifestyle Website - Production Ready
+# ====================================================================
+
+# -------------------
+# Build Settings
+# -------------------
+# These settings control how Netlify builds your site.
+
+[build]
+  # Command to build your site
+  # This uses the optimized production script from your package.json
+  command = "npm run build"
+  
+  # Directory to publish your built site
+  # Publishing from root directory since we don't have a separate build output
+  publish = "."
+  
+  # Directory with your serverless functions
+  # (optional, uncomment if you add serverless functions)
+  # functions = "netlify/functions/"
+
+# -------------------
+# Environment Variables
+# -------------------
+# These are build-time environment variables.
+
+[build.environment]
+  # Set Node.js version to ensure compatibility
+  NODE_VERSION = "18"
+  
+  # Set the site URL for sitemap generation
+  # This ensures the correct URL is used in your sitemap
+  # (You can also set this in the Netlify UI)
+  # NETLIFY_URL = "https://your-site-name.netlify.app"
+  
+# -------------------
+# Redirects & Rewrites
+# -------------------
+# These rules handle redirects, rewrites, and custom headers.
+
+# Redirect all traffic from HTTP to HTTPS for security
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Handle 404s with a custom page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# -------------------
+# Headers
+# -------------------
+# Custom headers for security, caching, and performance.
+
+[[headers]]
+  # Apply to all pages
+  for = "/*"
+  
+  [headers.values]
+    # Security Headers
+    # ----------------
+    # Content Security Policy (CSP)
+    # This helps prevent XSS attacks by restricting where content can be loaded from.
+    # You may need to adjust this based on your specific needs.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self';"
+    
+    # X-Frame-Options
+    # Prevents clickjacking by blocking your site from being loaded in an iframe.
+    X-Frame-Options = "DENY"
+    
+    # X-Content-Type-Options
+    # Prevents browsers from MIME-sniffing a response away from the declared content-type.
+    X-Content-Type-Options = "nosniff"
+    
+    # Referrer-Policy
+    # Controls how much referrer information is sent with requests.
+    Referrer-Policy = "no-referrer"
+    
+    # Permissions-Policy
+    # Controls which browser features can be used.
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Caching Headers
+    # ----------------
+    # Cache static assets for a year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Apply to HTML pages only
+  for = "/*.html"
+  
+  [headers.values]
+    # Do not cache HTML to ensure users get the latest version
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# -------------------
+# Netlify Plugins
+# -------------------
+# These plugins automate tasks like accessibility checks and sitemap submissions.
+
+[[plugins]]
+  # Netlify plugin for accessibility testing
+  # This runs Lighthouse accessibility checks on your deploys.
+  package = "@netlify/plugin-a11y"
+  
+  [plugins.inputs]
+    # Fail the build if any accessibility check fails
+    failOnError = false
+
+[[plugins]]
+  # Netlify plugin for submitting sitemaps
+  # This automatically submits your sitemap to search engines after each deploy.
+  package = "netlify-plugin-submit-sitemap"
+  
+  [plugins.inputs]
+    # The base URL of your site
+    baseUrl = "https://your-site-name.netlify.app"
+    
+    # Path to your sitemap
+    sitemapPath = "/sitemap.xml"
+    
+    # Providers to submit to
+    providers = ["google", "bing", "yandex"]
+
+# -------------------
+# Development Server Settings
+# -------------------
+# These settings are for local development with `netlify dev`.
+
+[dev]
+  # Command to start your dev server
+  command = "npm run dev"
+  
+  # Port for the dev server
+  port = 8888
+  
+  # Directory to serve files from
+  publish = "."
+  
+  # Open the browser when the dev server starts
+  autoLaunch = true
+
+# ====================================================================
+# END OF NETLIFY CONFIGURATION
+# ====================================================================

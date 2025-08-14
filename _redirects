@@ -1,0 +1,81 @@
+# ====================================================================
+# NETLIFY REDIRECTS AND REWRITES
+# Additional routing rules for the Erotica Lifestyle website
+# ====================================================================
+
+# Force HTTPS for all traffic
+http://eroticalifestyle.netlify.app/* https://eroticalifestyle.netlify.app/:splat 301!
+
+# Handle common misspellings and variations
+/home /index.html 301
+/homepage /index.html 301
+/main /index.html 301
+
+# Redirect old paths to new structure (if migrating)
+/shop /index.html#shop 301
+/products /index.html#shop 301
+/catalog /index.html#shop 301
+
+# Quiz redirects
+/take-quiz /pages/quiz.html 301
+/wellness-quiz /pages/quiz.html 301
+/assessment /pages/quiz.html 301
+
+# Blog redirects
+/blog /index.html#blog 301
+/articles /index.html#blog 301
+/wellness-blog /index.html#blog 301
+
+# About/Story redirects
+/about /index.html#story 301
+/about-us /index.html#story 301
+/our-story /index.html#story 301
+
+# Contact redirects
+/contact /index.html#contact 301
+/contact-us /index.html#contact 301
+/get-in-touch /index.html#contact 301
+
+# Partner redirects
+/partners /index.html#partners 301
+/partner-with-us /index.html#partners 301
+/partnerships /index.html#partners 301
+
+# Handle trailing slashes
+/pages/quiz/ /pages/quiz.html 301
+
+# API endpoints (if you add them later)
+/api/* /.netlify/functions/:splat 200
+
+# Handle SPA routing for any future single-page app features
+/app/* /index.html 200
+
+# Security redirects - block common attack patterns
+/wp-admin/* https://wordpress.com/ 301
+/wp-login.php https://wordpress.com/ 301
+/admin/* /404.html 404
+/login.php /404.html 404
+/config.php /404.html 404
+
+# Block access to sensitive files
+/.env /404.html 404
+/.git/* /404.html 404
+/package.json /404.html 404
+/node_modules/* /404.html 404
+
+# Handle common file extensions that shouldn't be accessed directly
+/*.json /404.html 404
+/*.md /404.html 404
+/*.txt /404.html 404 (except robots.txt)
+/robots.txt /robots.txt 200
+
+# Sitemap accessibility
+/sitemap /sitemap.xml 301
+/sitemaps.xml /sitemap.xml 301
+
+# Handle 404 for any unmatched routes
+/* /404.html 404
+
+# ====================================================================
+# END OF REDIRECTS
+# ====================================================================
