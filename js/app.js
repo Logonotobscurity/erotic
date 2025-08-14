@@ -32,7 +32,7 @@ const AppState = {
  * Initialize the application
  */
 async function initializeApp() {
-  if (AppState.initialized) return;
+  if (AppState.initialized) {return;}
 
   console.log('🚀 Initializing Erotica Lifestyle...');
 

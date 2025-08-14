@@ -91,7 +91,7 @@ class ShoppingCart {
    * @returns {boolean} Success status
    */
   add(productId, quantity = 1) {
-    if (!productId) return false;
+    if (!productId) {return false;}
 
     const product = productManager.getProduct(productId);
     if (!product) {
@@ -137,7 +137,7 @@ class ShoppingCart {
    * @returns {boolean} Success status
    */
   remove(productId) {
-    if (!productId || !this.items.has(productId)) return false;
+    if (!productId || !this.items.has(productId)) {return false;}
 
     const item = this.items.get(productId);
     this.items.delete(productId);
@@ -166,7 +166,7 @@ class ShoppingCart {
    * @returns {boolean} Success status
    */
   updateQuantity(productId, quantity) {
-    if (!productId || !this.items.has(productId)) return false;
+    if (!productId || !this.items.has(productId)) {return false;}
 
     if (quantity <= 0) {
       return this.remove(productId);
@@ -251,16 +251,17 @@ class ShoppingCart {
     if (this.cartBadge) {
       const totalItems = this.getTotalItems();
       this.cartBadge.textContent = totalItems;
-    
-    // Add visual feedback for cart updates
-    if (totalItems > 0) {
-      this.cartBadge.style.display = 'flex';
-      this.cartBadge.classList.add('animate-pulse');
-      setTimeout(() => {
-        this.cartBadge.classList.remove('animate-pulse');
-      }, 1000);
-    } else {
-      this.cartBadge.style.display = 'none';
+      
+      // Add visual feedback for cart updates
+      if (totalItems > 0) {
+        this.cartBadge.style.display = 'flex';
+        this.cartBadge.classList.add('animate-pulse');
+        setTimeout(() => {
+          this.cartBadge.classList.remove('animate-pulse');
+        }, 1000);
+      } else {
+        this.cartBadge.style.display = 'none';
+      }
     }
   }
 

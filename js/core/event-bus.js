@@ -47,7 +47,7 @@ class EventBus {
    * @param {Function} handler - Event handler function
    */
   off(event, handler) {
-    if (!this.events[event]) return;
+    if (!this.events[event]) {return;}
     
     this.events[event] = this.events[event].filter(h => h !== handler);
   }
@@ -58,7 +58,7 @@ class EventBus {
    * @param {*} data - Event data
    */
   emit(event, data) {
-    if (!this.events[event]) return;
+    if (!this.events[event]) {return;}
     
     this.events[event].forEach(handler => {
       try {

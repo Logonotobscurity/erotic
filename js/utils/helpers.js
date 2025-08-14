@@ -55,7 +55,7 @@ export function throttle(func, limit) {
 export function formatCurrency(amount, currency = 'NGN') {
   return new Intl.NumberFormat('en-NG', {
     style: 'currency',
-    currency: currency,
+    currency,
     minimumFractionDigits: 0
   }).format(amount);
 }
@@ -98,7 +98,7 @@ export function getFromStorage(key, defaultValue = null) {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : defaultValue;
   } catch (error) {
-    console.warn(`Error reading from localStorage:`, error);
+    console.warn('Error reading from localStorage:', error);
     return defaultValue;
   }
 }
@@ -114,7 +114,7 @@ export function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
     return true;
   } catch (error) {
-    console.warn(`Error writing to localStorage:`, error);
+    console.warn('Error writing to localStorage:', error);
     return false;
   }
 }

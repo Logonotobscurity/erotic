@@ -179,7 +179,7 @@ class ProductManager {
    */
   renderProducts() {
     const productGrid = document.getElementById('productGrid');
-    if (!productGrid) return;
+    if (!productGrid) {return;}
     
     productGrid.innerHTML = '';
     

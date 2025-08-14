@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "globals": {
+    "Notifications": "readonly",
+    "NotificationManager": "readonly",
+    "AgeGate": "readonly",
+    "Navigation": "readonly",
+    "Cart": "readonly",
+    "ProductFilter": "readonly",
+    "Forms": "readonly",
+    "gtag": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-useless-escape": "off",
+    "no-case-declarations": "off"
+  }
+}
