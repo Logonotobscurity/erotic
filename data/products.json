@@ -1,0 +1,299 @@
+{
+  "products": [
+    {
+      "id": "luxury-rabbit-vibrator",
+      "name": "Luxury Rabbit Vibrator",
+      "description": "Premium medical-grade silicone dual stimulation vibrator with 10 unique vibration patterns and whisper-quiet motor. Rechargeable and fully waterproof.",
+      "price": 45000,
+      "originalPrice": 52000,
+      "category": "vibrators",
+      "badge": "Bestseller",
+      "badgeType": "primary",
+      "rating": 4.9,
+      "reviews": 127,
+      "icon": "fas fa-heart",
+      "inStock": true,
+      "images": [
+        "/images/products/luxury-rabbit-1.jpg",
+        "/images/products/luxury-rabbit-2.jpg"
+      ],
+      "features": [
+        "10 vibration patterns",
+        "Medical-grade silicone",
+        "Waterproof IPX7",
+        "USB rechargeable",
+        "Whisper quiet"
+      ],
+      "specifications": {
+        "length": "22cm",
+        "width": "4cm",
+        "material": "Medical-grade silicone",
+        "battery": "Rechargeable lithium-ion",
+        "warranty": "1 year"
+      }
+    },
+    {
+      "id": "couples-pleasure-ring",
+      "name": "Couples' Pleasure Ring",
+      "description": "Rechargeable vibrating ring designed to enhance intimacy for both partners. Features multiple vibration modes and comfortable, stretchy design.",
+      "price": 28500,
+      "originalPrice": null,
+      "category": "couples",
+      "badge": "New",
+      "badgeType": "success",
+      "rating": 4.7,
+      "reviews": 89,
+      "icon": "fas fa-users",
+      "inStock": true,
+      "images": [
+        "/images/products/couples-ring-1.jpg"
+      ],
+      "features": [
+        "7 vibration modes",
+        "Stretchy comfortable fit",
+        "USB rechargeable",
+        "Body-safe materials",
+        "Easy to clean"
+      ],
+      "specifications": {
+        "diameter": "Stretchable to fit most",
+        "material": "Body-safe silicone",
+        "battery": "Rechargeable",
+        "runtime": "Up to 2 hours",
+        "warranty": "6 months"
+      }
+    },
+    {
+      "id": "premium-organic-lubricant",
+      "name": "Premium Organic Lubricant",
+      "description": "Long-lasting, water-based, pH-balanced personal lubricant made from organic ingredients. Perfect for sensitive skin.",
+      "price": 15750,
+      "originalPrice": null,
+      "category": "wellness",
+      "badge": "Organic",
+      "badgeType": "success",
+      "rating": 4.8,
+      "reviews": 203,
+      "icon": "fas fa-leaf",
+      "inStock": true,
+      "images": [
+        "/images/products/organic-lube-1.jpg"
+      ],
+      "features": [
+        "100% organic ingredients",
+        "pH balanced",
+        "Long-lasting formula",
+        "Sensitive skin friendly",
+        "Easy cleanup"
+      ],
+      "specifications": {
+        "volume": "100ml",
+        "ingredients": "Organic aloe vera, organic glycerin",
+        "ph": "4.5 (body-matched)",
+        "certification": "Organic certified",
+        "expiry": "2 years"
+      }
+    },
+    {
+      "id": "clitoral-stimulator-pro",
+      "name": "Professional Clitoral Stimulator",
+      "description": "Award-winning clitoral stimulator with revolutionary air-pulse technology. Features 11 intensity levels and whisper-quiet operation.",
+      "price": 52800,
+      "originalPrice": 62000,
+      "category": "vibrators",
+      "badge": "4.9★",
+      "badgeType": "warning",
+      "rating": 4.9,
+      "reviews": 156,
+      "icon": "fas fa-star",
+      "inStock": true,
+      "images": [
+        "/images/products/clitoral-stimulator-1.jpg",
+        "/images/products/clitoral-stimulator-2.jpg"
+      ],
+      "features": [
+        "Air-pulse technology",
+        "11 intensity levels",
+        "Whisper quiet",
+        "Waterproof design",
+        "Quick charge"
+      ],
+      "specifications": {
+        "length": "12cm",
+        "width": "5cm",
+        "material": "Body-safe silicone",
+        "technology": "Air pulse",
+        "warranty": "2 years"
+      }
+    },
+    {
+      "id": "smart-kegel-trainer",
+      "name": "Smart Kegel Balls",
+      "description": "App-connected pelvic floor trainer with biofeedback technology. Helps strengthen pelvic muscles and improve intimate wellness.",
+      "price": 38250,
+      "originalPrice": null,
+      "category": "wellness",
+      "badge": "Smart",
+      "badgeType": "default",
+      "rating": 4.6,
+      "reviews": 78,
+      "icon": "fas fa-dumbbell",
+      "inStock": true,
+      "images": [
+        "/images/products/kegel-balls-1.jpg"
+      ],
+      "features": [
+        "Bluetooth app connectivity",
+        "Biofeedback technology",
+        "Progressive training programs",
+        "Medical-grade materials",
+        "Discreet design"
+      ],
+      "specifications": {
+        "weight": "Variable (progressive)",
+        "material": "Medical-grade silicone",
+        "connectivity": "Bluetooth 5.0",
+        "app": "iOS & Android compatible",
+        "warranty": "1 year"
+      }
+    },
+    {
+      "id": "luxury-care-essentials-kit",
+      "name": "Luxury Care Essentials Kit",
+      "description": "Complete intimate care bundle including premium cleaner, storage pouch, and maintenance essentials for your wellness products.",
+      "price": 22400,
+      "originalPrice": 28000,
+      "category": "accessories",
+      "badge": "Bundle",
+      "badgeType": "default",
+      "rating": 4.5,
+      "reviews": 92,
+      "icon": "fas fa-box",
+      "inStock": true,
+      "images": [
+        "/images/products/care-kit-1.jpg"
+      ],
+      "features": [
+        "Premium toy cleaner",
+        "Luxury storage pouch",
+        "Maintenance guide",
+        "Antibacterial wipes",
+        "Travel case"
+      ],
+      "specifications": {
+        "cleaner_volume": "150ml",
+        "pouch_material": "Satin with antimicrobial lining",
+        "wipes_count": "20 individual packets",
+        "case_size": "Compact travel size",
+        "warranty": "6 months"
+      }
+    },
+    {
+      "id": "rose-gold-wand-massager",
+      "name": "Rose Gold Wand Massager",
+      "description": "Elegant and powerful wand massager with 20 vibration patterns. Features luxury rose gold finish and premium construction.",
+      "price": 67500,
+      "originalPrice": null,
+      "category": "vibrators",
+      "badge": "Luxury",
+      "badgeType": "warning",
+      "rating": 4.8,
+      "reviews": 64,
+      "icon": "fas fa-magic",
+      "inStock": true,
+      "images": [
+        "/images/products/rose-gold-wand-1.jpg"
+      ],
+      "features": [
+        "20 vibration patterns",
+        "Rose gold finish",
+        "Memory function",
+        "Travel lock",
+        "Premium packaging"
+      ],
+      "specifications": {
+        "length": "25cm",
+        "head_diameter": "5cm",
+        "material": "Silicone with rose gold coating",
+        "patterns": "20 unique patterns",
+        "warranty": "2 years"
+      }
+    },
+    {
+      "id": "intimate-wellness-serum",
+      "name": "Intimate Wellness Serum",
+      "description": "Specially formulated intimate serum with natural ingredients to enhance sensitivity and comfort during intimate moments.",
+      "price": 19800,
+      "originalPrice": null,
+      "category": "wellness",
+      "badge": "Natural",
+      "badgeType": "success",
+      "rating": 4.4,
+      "reviews": 134,
+      "icon": "fas fa-seedling",
+      "inStock": true,
+      "images": [
+        "/images/products/wellness-serum-1.jpg"
+      ],
+      "features": [
+        "Natural ingredients",
+        "Sensitivity enhancing",
+        "Moisturizing formula",
+        "Dermatologist tested",
+        "Hormone-free"
+      ],
+      "specifications": {
+        "volume": "30ml",
+        "key_ingredients": "L-Arginine, Menthol, Natural extracts",
+        "application": "Topical use only",
+        "testing": "Dermatologist tested",
+        "expiry": "18 months"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "vibrators",
+      "name": "Vibrators",
+      "description": "Premium vibrators for personal pleasure",
+      "icon": "fas fa-heart",
+      "color": "pink"
+    },
+    {
+      "id": "couples",
+      "name": "For Couples",
+      "description": "Products designed to enhance intimacy between partners",
+      "icon": "fas fa-users",
+      "color": "purple"
+    },
+    {
+      "id": "wellness",
+      "name": "Wellness",
+      "description": "Health and wellness products for intimate care",
+      "icon": "fas fa-leaf",
+      "color": "green"
+    },
+    {
+      "id": "accessories",
+      "name": "Accessories",
+      "description": "Care products and accessories",
+      "icon": "fas fa-box",
+      "color": "gray"
+    }
+  ],
+  "filters": {
+    "priceRanges": [
+      { "min": 0, "max": 20000, "label": "Under ₦20,000" },
+      { "min": 20000, "max": 40000, "label": "₦20,000 - ₦40,000" },
+      { "min": 40000, "max": 60000, "label": "₦40,000 - ₦60,000" },
+      { "min": 60000, "max": 999999, "label": "Over ₦60,000" }
+    ],
+    "sortOptions": [
+      { "value": "name", "label": "Name A-Z" },
+      { "value": "price-low", "label": "Price: Low to High" },
+      { "value": "price-high", "label": "Price: High to Low" },
+      { "value": "rating", "label": "Highest Rated" },
+      { "value": "newest", "label": "Newest First" }
+    ]
+  }
+}

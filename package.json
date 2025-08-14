@@ -1,0 +1,48 @@
+{
+  "name": "erotica-lifestyle-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive adult wellness e-commerce website built with vanilla HTML, CSS, and JavaScript. Features contemporary design patterns, smooth animations, and professional user experience.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 || npx serve . -s",
+    "dev": "npx serve . -s -l 3000",
+    "build": "echo 'No build step required for static site'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'",
+    "deploy": "echo 'Ready for deployment to static hosting'"
+  },
+  "keywords": [
+    "adult-wellness",
+    "e-commerce",
+    "responsive",
+    "modern",
+    "javascript",
+    "html",
+    "css",
+    "africa",
+    "discreet",
+    "wellness"
+  ],
+  "author": "Erotica Lifestyle Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Logonotobscurity/erotic.git"
+  },
+  "homepage": "https://logonotobscurity.github.io/erotic/",
+  "bugs": {
+    "url": "https://github.com/Logonotobscurity/erotic/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

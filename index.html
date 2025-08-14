@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erotica Lifestyle - Africa's Premier Discreet Adult Wellness Store</title>
+    <meta name="description" content="Premium adult wellness products for women & couples across Africa. Discreet packaging, secure delivery. Own your pleasure with confidence.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="adult wellness, intimate products, discreet delivery, Africa, women's health, couples products">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Erotica Lifestyle">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Erotica Lifestyle - Premium Adult Wellness">
+    <meta property="og:description" content="Discreet premium adult wellness products delivered across Africa">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eroticalifestyle.com">
+    <meta property="og:image" content="./images/banners/og-banner.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Erotica Lifestyle - Premium Adult Wellness">
+    <meta name="twitter:description" content="Discreet premium adult wellness products delivered across Africa">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components/navigation.css">
+    <link rel="stylesheet" href="./css/components/hero.css">
+    <link rel="stylesheet" href="./css/components/products.css">
+    <link rel="stylesheet" href="./css/components/modal.css">
+    <link rel="stylesheet" href="./css/components/forms.css">
+    <link rel="stylesheet" href="./css/utils/animations.css">
+    <link rel="stylesheet" href="./css/utils/responsive.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Age Gate Modal -->
+    <div id="ageGate" class="age-gate">
+        <div class="age-gate-content glass-card p-8 text-center max-w-md mx-auto">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-magenta rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-2xl text-white"></i>
+                </div>
+                <h2 class="text-3xl font-display font-bold text-plum mb-2">Age Verification</h2>
+                <p class="text-base text-gray-700">You must be 18 or older to access this website. This site contains adult content.</p>
+            </div>
+            <div class="flex gap-4 justify-center">
+                <button onclick="acceptAge()" class="btn btn-primary">
+                    <i class="fas fa-check"></i>
+                    I am 18+
+                </button>
+                <button onclick="declineAge()" class="btn btn-secondary">
+                    <i class="fas fa-times"></i>
+                    Exit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container py-4 flex justify-between items-center">
+            <div class="font-display text-2xl font-bold text-plum">
+                Erotica Lifestyle
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="toggleDiscreetMode()" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode">
+                    <i class="fas fa-eye text-xl" id="discreteIcon"></i>
+                </button>
+                <button class="text-plum hover:text-magenta transition-colors relative" title="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-magenta text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartBadge">0</span>
+                </button>
+                <button onclick="toggleMenu()" class="text-plum hover:text-magenta transition-colors md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content px-4 max-w-6xl mx-auto">
+            <h1 class="text-6xl font-display font-bold mb-6 leading-tight">
+                Own Your Pleasure,<br>
+                <span class="text-magenta-300">Discreetly.</span>
+            </h1>
+            <p class="text-xl mb-12 max-w-2xl mx-auto opacity-90">
+                Premium adult wellness products for women & couples delivered across Africa in plain, secure packaging.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#shop" class="btn btn-primary text-lg">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop Best-Sellers
+                </a>
+                <a href="./pages/quiz.html" class="btn btn-ghost text-lg">
+                    <i class="fas fa-clipboard-list"></i>
+                    Take the Quiz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section bg-white">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-display font-bold text-plum mb-4">Premium Collection</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Carefully curated adult wellness products designed for your pleasure and satisfaction.
+                </p>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="vibrators">Vibrators</button>
+                <button class="filter-btn" data-category="couples">For Couples</button>
+                <button class="filter-btn" data-category="wellness">Wellness</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="vibrators">
+                    <div class="product-image bg-gradient-to-br from-pink-100 to-purple-100">
+                        <i class="fas fa-heart text-6xl text-magenta opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge badge-primary">Bestseller</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('rose-luxe-vibrator')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Rose Luxe Vibrator</h3>
+                        <p class="product-description">Premium medical-grade silicone, whisper-quiet operation, 10 unique vibration modes</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(127 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦45,800</div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('rose-luxe-vibrator')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('rose-luxe-vibrator')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="couples">
+                    <div class="product-image bg-gradient-to-br from-purple-100 to-blue-100">
+                        <i class="fas fa-gem text-6xl text-purple-500 opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge badge-success">New</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('couples-ring-set')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Couples Ring Set</h3>
+                        <p class="product-description">Rechargeable vibrating ring set, app-controlled with premium materials for enhanced intimacy</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(89 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="product-price-original">₦58,000</span>
+                                ₦49,500
+                            </div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('couples-ring-set')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('couples-ring-set')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="wellness">
+                    <div class="product-image bg-gradient-to-br from-green-100 to-teal-100">
+                        <i class="fas fa-leaf text-6xl text-green-500 opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge">Organic</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('organic-wellness-kit')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Organic Wellness Kit</h3>
+                        <p class="product-description">Complete natural wellness package: organic lubricants, pH-balanced cleansers, and supplements</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="product-reviews">(203 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦26,750</div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('organic-wellness-kit')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('organic-wellness-kit')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="vibrators">
+                    <div class="product-image bg-gradient-to-br from-orange-100 to-red-100">
+                        <i class="fas fa-fire text-6xl text-orange-500 opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge badge-warning">Hot</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('heated-massage-wand')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Heated Massage Wand</h3>
+                        <p class="product-description">Revolutionary warming function, multiple attachments, wireless charging with premium feel</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="product-reviews">(76 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦62,400</div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('heated-massage-wand')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('heated-massage-wand')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="wellness">
+                    <div class="product-image bg-gradient-to-br from-indigo-100 to-purple-100">
+                        <i class="fas fa-dumbbell text-6xl text-indigo-500 opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge">Smart</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('smart-kegel-trainer')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Smart Kegel Trainer</h3>
+                        <p class="product-description">App-connected pelvic floor trainer with biofeedback technology and progressive programs</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star opacity-30"></i>
+                            </div>
+                            <span class="product-reviews">(95 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">₦38,250</div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('smart-kegel-trainer')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('smart-kegel-trainer')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image bg-gradient-to-br from-gray-100 to-slate-100">
+                        <i class="fas fa-box text-6xl text-gray-500 opacity-50"></i>
+                        <div class="product-badge">
+                            <span class="badge">Bundle</span>
+                        </div>
+                        <button class="product-quickview" onclick="openQuickView('luxury-care-essentials')" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Luxury Care Essentials</h3>
+                        <p class="product-description">Complete care bundle: premium cleaner, storage pouch, maintenance guide, and travel case</p>
+                        <div class="product-rating">
+                            <div class="product-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="product-reviews">(142 reviews)</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="product-price-original">₦28,000</span>
+                                ₦22,400
+                            </div>
+                            <div class="product-actions">
+                                <button class="product-btn" onclick="addToCart('luxury-care-essentials')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="product-btn-wishlist" onclick="toggleWishlist('luxury-care-essentials')" title="Add to Wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn btn-secondary" onclick="loadMoreProducts()">
+                    <i class="fas fa-plus-circle"></i>
+                    Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="section bg-sand">
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl font-display font-bold text-plum mb-6">Our Story</h2>
+                <p class="text-lg text-gray-700 mb-12">
+                    We believe every woman and couple deserves access to premium adult wellness products without compromise. 
+                    Founded in Lagos, we're pioneering discreet, judgment-free access to sexual wellness across Africa.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 text-center">
+                        <div class="w-16 h-16 bg-magenta rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-semibold text-plum mb-2">100% Discreet</h3>
+                        <p class="text-sm text-gray-600">Plain packaging, secure delivery, complete privacy protection</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 text-center">
+                        <div class="w-16 h-16 bg-magenta rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-award text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-semibold text-plum mb-2">Premium Quality</h3>
+                        <p class="text-sm text-gray-600">Curated selection of body-safe, certified wellness products</p>
+                    </div>
+                    
+                    <div class="glass-card p-8 text-center">
+                        <div class="w-16 h-16 bg-magenta rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-semibold text-plum mb-2">Sexual Wellness</h3>
+                        <p class="text-sm text-gray-600">Education, empowerment, and pleasure without shame</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Blog Section -->
+    <section id="blog" class="section bg-white">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold text-plum mb-6">Wellness Blog</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Expert advice, educational content, and tips for a healthier, more fulfilling intimate life.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-pink-100 to-rose-100">
+                        <div class="blog-category-badge">
+                            <span class="badge badge-primary">EDUCATION</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-user-graduate text-4xl text-pink-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Understanding Your Body: A Guide to Self-Discovery</h3>
+                        <p class="blog-excerpt">
+                            Comprehensive guide to understanding female anatomy and exploring what feels good for you.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>5 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-user-graduate text-magenta"></i>
+                                <span>Educational Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('understanding-your-body')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('understanding-your-body')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('understanding-your-body')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-green-100 to-emerald-100">
+                        <div class="blog-category-badge">
+                            <span class="badge badge-success">WELLNESS</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-dumbbell text-4xl text-green-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Kegel Exercises: Strengthening Your Pelvic Floor</h3>
+                        <p class="blog-excerpt">
+                            Learn the importance of pelvic floor health and how to perform effective kegel exercises for better wellness.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>7 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-dumbbell text-magenta"></i>
+                                <span>Wellness Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('kegel-exercises')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('kegel-exercises')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('kegel-exercises')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-purple-100 to-indigo-100">
+                        <div class="blog-category-badge">
+                            <span class="badge">RELATIONSHIPS</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-comments text-4xl text-purple-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Communication: The Key to Better Intimacy</h3>
+                        <p class="blog-excerpt">
+                            How to have open, honest conversations about desires and boundaries with your partner.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>6 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-comments text-magenta"></i>
+                                <span>Relationship Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('communication-intimacy')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('communication-intimacy')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('communication-intimacy')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-orange-100 to-yellow-100">
+                        <div class="blog-category-badge">
+                            <span class="badge badge-warning">HEALTH</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-heartbeat text-4xl text-orange-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Menstrual Health and Intimacy</h3>
+                        <p class="blog-excerpt">
+                            Understanding how your menstrual cycle affects intimacy and ways to maintain wellness throughout.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>8 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-heartbeat text-magenta"></i>
+                                <span>Health Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('menstrual-health')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('menstrual-health')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('menstrual-health')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-teal-100 to-cyan-100">
+                        <div class="blog-category-badge">
+                            <span class="badge badge-success">WELLNESS</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-spa text-4xl text-teal-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Self-Care Rituals for Intimate Wellness</h3>
+                        <p class="blog-excerpt">
+                            Creating meaningful self-care routines that support your intimate health and overall well-being.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>5 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-spa text-magenta"></i>
+                                <span>Wellness Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('self-care-rituals')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('self-care-rituals')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('self-care-rituals')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image bg-gradient-to-br from-red-100 to-pink-100">
+                        <div class="blog-category-badge">
+                            <span class="badge badge-primary">EDUCATION</span>
+                        </div>
+                        <div class="blog-icon">
+                            <i class="fas fa-shield-alt text-4xl text-red-500 opacity-60"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Safe Practices and Product Care</h3>
+                        <p class="blog-excerpt">
+                            Essential guide to maintaining hygiene and safety when using intimate wellness products.
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock text-magenta"></i>
+                                <span>4 min read</span>
+                            </div>
+                            <div class="blog-category">
+                                <i class="fas fa-shield-alt text-magenta"></i>
+                                <span>Safety Guide</span>
+                            </div>
+                        </div>
+                        <div class="blog-actions">
+                            <button class="btn btn-primary" onclick="openBlogPost('safe-practices')">
+                                <i class="fas fa-book-open"></i>
+                                Read More
+                            </button>
+                            <div class="blog-social">
+                                <button class="blog-bookmark" onclick="bookmarkArticle('safe-practices')" title="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="blog-share" onclick="shareArticle('safe-practices')" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center">
+                <a href="./pages/blog.html" class="btn btn-secondary text-lg px-8 py-4">
+                    <i class="fas fa-newspaper"></i>
+                    View All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="section bg-sand">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold text-plum mb-6">Join Our Partner Network</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    We're building Africa's premier wellness ecosystem. Partner with us to bring premium, discreet adult wellness products to communities across the continent.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Manufacturer Partnership -->
+                <div class="partner-card bg-white">
+                    <div class="partner-header bg-gradient-to-r from-purple-500 to-magenta-500">
+                        <div class="partner-icon">
+                            <i class="fas fa-industry text-4xl text-white"></i>
+                        </div>
+                        <h3 class="partner-title">Manufacturing Partners</h3>
+                        <p class="partner-subtitle">Premium Product Manufacturers</p>
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-benefits">
+                            <h4>What We Offer:</h4>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-globe-africa text-magenta"></i> Access to African Markets</li>
+                                <li><i class="fas fa-shipping-fast text-magenta"></i> Established Distribution Network</li>
+                                <li><i class="fas fa-chart-line text-magenta"></i> Marketing & Brand Support</li>
+                                <li><i class="fas fa-shield-alt text-magenta"></i> Discreet Fulfillment Services</li>
+                                <li><i class="fas fa-users text-magenta"></i> Customer Base of 50K+ Users</li>
+                            </ul>
+                        </div>
+                        <div class="partner-requirements">
+                            <h4>Requirements:</h4>
+                            <ul class="requirement-list">
+                                <li><i class="fas fa-certificate text-gray-400"></i> CE/FDA Certified Products</li>
+                                <li><i class="fas fa-leaf text-gray-400"></i> Body-Safe Materials Only</li>
+                                <li><i class="fas fa-award text-gray-400"></i> Premium Quality Standards</li>
+                                <li><i class="fas fa-handshake text-gray-400"></i> Flexible Partnership Terms</li>
+                            </ul>
+                        </div>
+                        <div class="partner-action">
+                            <button class="btn btn-primary w-full" onclick="openPartnerForm('manufacturer')">
+                                <i class="fas fa-paper-plane"></i>
+                                Apply as Manufacturer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distribution Partnership -->
+                <div class="partner-card bg-white">
+                    <div class="partner-header bg-gradient-to-r from-blue-500 to-teal-500">
+                        <div class="partner-icon">
+                            <i class="fas fa-truck text-4xl text-white"></i>
+                        </div>
+                        <h3 class="partner-title">Distribution Partners</h3>
+                        <p class="partner-subtitle">Logistics & Fulfillment Partners</p>
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-benefits">
+                            <h4>What We Offer:</h4>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-boxes text-magenta"></i> Consistent Order Volume</li>
+                                <li><i class="fas fa-money-bill-wave text-magenta"></i> Competitive Rates</li>
+                                <li><i class="fas fa-clock text-magenta"></i> Flexible Scheduling</li>
+                                <li><i class="fas fa-map-marked-alt text-magenta"></i> Multi-City Coverage</li>
+                                <li><i class="fas fa-user-secret text-magenta"></i> Discreet Packaging Requirements</li>
+                            </ul>
+                        </div>
+                        <div class="partner-requirements">
+                            <h4>Requirements:</h4>
+                            <ul class="requirement-list">
+                                <li><i class="fas fa-business-time text-gray-400"></i> Licensed Logistics Company</li>
+                                <li><i class="fas fa-shield-check text-gray-400"></i> Secure Handling Protocols</li>
+                                <li><i class="fas fa-mobile-alt text-gray-400"></i> Real-time Tracking Systems</li>
+                                <li><i class="fas fa-user-shield text-gray-400"></i> Privacy-First Approach</li>
+                            </ul>
+                        </div>
+                        <div class="partner-action">
+                            <button class="btn btn-primary w-full" onclick="openPartnerForm('distributor')">
+                                <i class="fas fa-paper-plane"></i>
+                                Apply as Distributor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retailer Partnership -->
+                <div class="partner-card bg-white">
+                    <div class="partner-header bg-gradient-to-r from-green-500 to-emerald-500">
+                        <div class="partner-icon">
+                            <i class="fas fa-store text-4xl text-white"></i>
+                        </div>
+                        <h3 class="partner-title">Retail Partners</h3>
+                        <p class="partner-subtitle">Physical & Online Retailers</p>
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-benefits">
+                            <h4>What We Offer:</h4>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-tags text-magenta"></i> Wholesale Pricing</li>
+                                <li><i class="fas fa-graduation-cap text-magenta"></i> Product Training</li>
+                                <li><i class="fas fa-bullhorn text-magenta"></i> Marketing Materials</li>
+                                <li><i class="fas fa-headset text-magenta"></i> Customer Support</li>
+                                <li><i class="fas fa-trophy text-magenta"></i> Exclusive Territory Rights</li>
+                            </ul>
+                        </div>
+                        <div class="partner-requirements">
+                            <h4>Requirements:</h4>
+                            <ul class="requirement-list">
+                                <li><i class="fas fa-store-alt text-gray-400"></i> Established Retail Presence</li>
+                                <li><i class="fas fa-users-cog text-gray-400"></i> Adult-Focused Customer Base</li>
+                                <li><i class="fas fa-eye-slash text-gray-400"></i> Discreet Shopping Environment</li>
+                                <li><i class="fas fa-dollar-sign text-gray-400"></i> Minimum Order Requirements</li>
+                            </ul>
+                        </div>
+                        <div class="partner-action">
+                            <button class="btn btn-primary w-full" onclick="openPartnerForm('retailer')">
+                                <i class="fas fa-paper-plane"></i>
+                                Apply as Retailer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Partnership -->
+                <div class="partner-card bg-white">
+                    <div class="partner-header bg-gradient-to-r from-orange-500 to-red-500">
+                        <div class="partner-icon">
+                            <i class="fas fa-code text-4xl text-white"></i>
+                        </div>
+                        <h3 class="partner-title">Technology Partners</h3>
+                        <p class="partner-subtitle">Software & Platform Integrations</p>
+                    </div>
+                    <div class="partner-content">
+                        <div class="partner-benefits">
+                            <h4>What We Offer:</h4>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-rocket text-magenta"></i> Innovative Project Opportunities</li>
+                                <li><i class="fas fa-database text-magenta"></i> Rich API Access</li>
+                                <li><i class="fas fa-users text-magenta"></i> Large User Base</li>
+                                <li><i class="fas fa-chart-pie text-magenta"></i> Revenue Sharing Models</li>
+                                <li><i class="fas fa-lightbulb text-magenta"></i> Co-Innovation Opportunities</li>
+                            </ul>
+                        </div>
+                        <div class="partner-requirements">
+                            <h4>Requirements:</h4>
+                            <ul class="requirement-list">
+                                <li><i class="fas fa-laptop-code text-gray-400"></i> Proven Development Experience</li>
+                                <li><i class="fas fa-lock text-gray-400"></i> Strong Security Practices</li>
+                                <li><i class="fas fa-mobile text-gray-400"></i> Mobile-First Approach</li>
+                                <li><i class="fas fa-sync-alt text-gray-400"></i> API Integration Experience</li>
+                            </ul>
+                        </div>
+                        <div class="partner-action">
+                            <button class="btn btn-primary w-full" onclick="openPartnerForm('technology')">
+                                <i class="fas fa-paper-plane"></i>
+                                Apply as Tech Partner
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partnership Stats -->
+            <div class="partner-stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Active Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Partner Brands</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">African Countries</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Customer Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-white">
+        <div class="container">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl font-display font-bold text-plum mb-4">Get in Touch</h2>
+                    <p class="text-lg text-gray-600">We're here to support you on your wellness journey with discretion and care.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-display font-semibold text-plum">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-magenta rounded-full flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-plum">WhatsApp Support</p>
+                                    <p class="text-sm text-gray-600">+234 (0) 812-345-6789</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-magenta rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-plum">Email Support</p>
+                                    <p class="text-sm text-gray-600">support@eroticalifestyle.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-magenta rounded-full flex items-center justify-center">
+                                    <i class="fas fa-clock text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-plum">Support Hours</p>
+                                    <p class="text-sm text-gray-600">Mon-Fri: 9AM-6PM WAT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-8">
+                        <h3 class="text-2xl font-display font-semibold text-plum mb-6">Send a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <input type="text" name="name" placeholder="Your Name" required class="form-input">
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="Email Address" required class="form-input">
+                            </div>
+                            <div>
+                                <select name="subject" class="form-input" required>
+                                    <option value="">Select Subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="product">Product Support</option>
+                                    <option value="shipping">Shipping Question</option>
+                                    <option value="ambassador">Ambassador Program</option>
+                                    <option value="returns">Returns/Exchanges</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea name="message" placeholder="Your Message" rows="4" required class="form-input"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-plum text-white py-12">
+        <div class="container">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-display font-bold mb-4">Erotica Lifestyle</h3>
+                    <p class="text-sm opacity-90 mb-6">Africa's premier discreet adult wellness destination for women and couples.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-display font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#shop" class="hover:text-magenta transition-colors">Shop Products</a></li>
+                        <li><a href="./pages/catalog.html" class="hover:text-magenta transition-colors">Full Catalog</a></li>
+                        <li><a href="./pages/blog.html" class="hover:text-magenta transition-colors">Wellness Blog</a></li>
+                        <li><a href="./pages/ambassador.html" class="hover:text-magenta transition-colors">Ambassador Program</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-display font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./pages/shipping.html" class="hover:text-magenta transition-colors">Shipping & Returns</a></li>
+                        <li><a href="./pages/size-guide.html" class="hover:text-magenta transition-colors">Size Guide</a></li>
+                        <li><a href="./pages/care.html" class="hover:text-magenta transition-colors">Care Instructions</a></li>
+                        <li><a href="#contact" class="hover:text-magenta transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-display font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./pages/privacy.html" class="hover:text-magenta transition-colors">Privacy Policy</a></li>
+                        <li><a href="./pages/terms.html" class="hover:text-magenta transition-colors">Terms & Conditions</a></li>
+                        <li><a href="./pages/cookies.html" class="hover:text-magenta transition-colors">Cookie Policy</a></li>
+                        <li><a href="./pages/age-verification.html" class="hover:text-magenta transition-colors">Age Verification</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center">
+                <p class="text-sm opacity-90">© 2024 Erotica Lifestyle. All rights reserved. | 18+ Only | Discreet Worldwide Shipping</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/modules/ageGate.js"></script>
+    <script src="./js/modules/cart.js"></script>
+    <script src="./js/modules/productFilter.js"></script>
+    <script src="./js/modules/navigation.js"></script>
+    <script src="./js/modules/forms.js"></script>
+    <script src="./js/modules/notifications.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build required'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect rules
+[[redirects]]
+  from = "/admin/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Age verification redirect
+[[redirects]]
+  from = "/verify-age"
+  to = "/index.html"
+  status = 200
+
+# Privacy and legal pages
+[[redirects]]
+  from = "/privacy"
+  to = "/pages/privacy.html"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/pages/terms.html"
+  status = 301
+
+# Product catalog
+[[redirects]]
+  from = "/shop"
+  to = "/pages/catalog.html"
+  status = 301
+
+[[redirects]]
+  from = "/products"
+  to = "/pages/catalog.html"
+  status = 301
