@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Quiz - Find Your Perfect Products | Erotica Lifestyle</title>
+    <meta name="description" content="Take our personalized wellness quiz to discover products tailored to your needs and preferences. Confidential and expertly curated recommendations.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="wellness quiz, product recommendations, intimate health, adult wellness assessment">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Erotica Lifestyle">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wellness Quiz - Personalized Product Recommendations">
+    <meta property="og:description" content="Discover products perfect for you with our confidential wellness quiz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eroticalifestyle.com/pages/quiz.html">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/navigation.css">
+    <link rel="stylesheet" href="../css/components/products.css">
+    <link rel="stylesheet" href="../css/components/modal.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    <link rel="stylesheet" href="../css/utils/animations.css">
+    <link rel="stylesheet" href="../css/utils/responsive.css">
+    <link rel="stylesheet" href="../css/accessibility-improvements.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        /* Quiz-specific styles with pure black text for accessibility */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(46, 16, 55, 0.08);
+        }
+        
+        .quiz-header h1 {
+            color: #000000 !important;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-header p {
+            color: #000000 !important;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .quiz-progress {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(46, 16, 55, 0.06);
+        }
+        
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(135deg, var(--magenta-500) 0%, var(--plum-600) 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            color: #000000 !important;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(46, 16, 55, 0.08);
+            border: 1px solid rgba(46, 16, 55, 0.06);
+        }
+        
+        .question-number {
+            color: var(--magenta-600);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .question-title {
+            color: #000000 !important;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .quiz-option {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--magenta-400);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 0, 126, 0.15);
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--magenta-500);
+            background: linear-gradient(135deg, rgba(230, 0, 126, 0.05) 0%, rgba(46, 16, 55, 0.05) 100%);
+        }
+        
+        .option-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--magenta-100) 0%, var(--plum-100) 100%);
+            color: var(--magenta-600);
+            font-size: 1.2rem;
+        }
+        
+        .option-title {
+            color: #000000 !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .option-description {
+            color: #000000 !important;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.8;
+            margin-left: 56px;
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .quiz-results {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(46, 16, 55, 0.08);
+        }
+        
+        .results-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--magenta-500) 0%, var(--plum-600) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .results-title {
+            color: #000000 !important;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .results-description {
+            color: #000000 !important;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .recommended-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .product-recommendation {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(46, 16, 55, 0.06);
+            border: 1px solid rgba(46, 16, 55, 0.08);
+        }
+        
+        .product-match {
+            background: linear-gradient(135deg, var(--magenta-500) 0%, var(--plum-600) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .product-name {
+            color: #000000 !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-description {
+            color: #000000 !important;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-restart {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 1rem;
+            }
+            
+            .quiz-header h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-question {
+                padding: 1.5rem;
+            }
+            
+            .option-description {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .quiz-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Age Gate Modal -->
+    <div id="ageGate" class="age-gate">
+        <div class="age-gate-content glass-card p-8 text-center max-w-md mx-auto">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-magenta rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-2xl text-white"></i>
+                </div>
+                <h2 class="text-3xl font-display font-bold text-plum mb-2">Age Verification</h2>
+                <p class="text-base text-gray-700">You must be 18 or older to access this website. This site contains adult content.</p>
+            </div>
+            <div class="flex gap-4 justify-center">
+                <button onclick="acceptAge()" class="btn btn-primary">
+                    <i class="fas fa-check"></i>
+                    I am 18+
+                </button>
+                <button onclick="declineAge()" class="btn btn-secondary">
+                    <i class="fas fa-times"></i>
+                    Exit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container py-4 flex justify-between items-center">
+            <a href="../index.html" class="font-display text-2xl font-bold text-plum">
+                Erotica Lifestyle
+            </a>
+            <div class="flex items-center gap-6">
+                <button onclick="toggleDiscreetMode()" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode">
+                    <i class="fas fa-eye text-xl" id="discreteIcon"></i>
+                </button>
+                <button class="text-plum hover:text-magenta transition-colors relative" title="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-magenta text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartBadge">0</span>
+                </button>
+                <a href="../index.html" class="text-plum hover:text-magenta transition-colors">
+                    <i class="fas fa-home text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen bg-sand pt-20">
+        <div class="quiz-container">
+            <!-- Quiz Header -->
+            <div class="quiz-header">
+                <h1>Wellness Discovery Quiz</h1>
+                <p>
+                    Answer a few questions to receive personalized product recommendations tailored to your preferences, 
+                    lifestyle, and wellness goals. Your responses are completely confidential and secure.
+                </p>
+            </div>
+
+            <!-- Quiz Progress -->
+            <div class="quiz-progress" id="quizProgress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text" id="progressText">Question 1 of 8</div>
+            </div>
+
+            <!-- Quiz Questions -->
+            <div id="quizContainer">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+
+            <!-- Quiz Navigation -->
+            <div class="quiz-navigation" id="quizNavigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous
+                </button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                    Next Question
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Quiz Results -->
+            <div id="quizResults" style="display: none;">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/modules/ageGate.js"></script>
+    <script src="../js/modules/cart.js"></script>
+    <script src="../js/modules/navigation.js"></script>
+    
+    <script>
+        // Quiz data and logic with pure black text for accessibility
+        const quizQuestions = [
+            {
+                id: 1,
+                question: "What's your primary wellness goal?",
+                options: [
+                    {
+                        icon: "fas fa-heart",
+                        title: "Enhanced Intimacy",
+                        description: "Looking to improve connection and intimacy with your partner",
+                        value: "intimacy"
+                    },
+                    {
+                        icon: "fas fa-user",
+                        title: "Personal Exploration",
+                        description: "Want to discover what brings you personal pleasure and satisfaction",
+                        value: "personal"
+                    },
+                    {
+                        icon: "fas fa-dumbbell",
+                        title: "Pelvic Health",
+                        description: "Focus on strengthening pelvic floor muscles and overall health",
+                        value: "health"
+                    },
+                    {
+                        icon: "fas fa-spa",
+                        title: "Stress Relief",
+                        description: "Seeking ways to relax and relieve tension through wellness",
+                        value: "relaxation"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                question: "What's your experience level?",
+                options: [
+                    {
+                        icon: "fas fa-seedling",
+                        title: "Beginner",
+                        description: "New to adult wellness products and want to start gentle",
+                        value: "beginner"
+                    },
+                    {
+                        icon: "fas fa-leaf",
+                        title: "Some Experience",
+                        description: "Have tried a few things and looking to expand your collection",
+                        value: "intermediate"
+                    },
+                    {
+                        icon: "fas fa-tree",
+                        title: "Experienced",
+                        description: "Well-versed in adult wellness and seeking premium options",
+                        value: "advanced"
+                    }
+                ]
+            },
+            {
+                id: 3,
+                question: "What type of stimulation interests you most?",
+                options: [
+                    {
+                        icon: "fas fa-circle",
+                        title: "External",
+                        description: "Focused on external stimulation and surface-level pleasure",
+                        value: "external"
+                    },
+                    {
+                        icon: "fas fa-dot-circle",
+                        title: "Internal",
+                        description: "Interested in internal stimulation and deeper sensations",
+                        value: "internal"
+                    },
+                    {
+                        icon: "fas fa-adjust",
+                        title: "Both",
+                        description: "Want versatile options that offer multiple types of stimulation",
+                        value: "both"
+                    }
+                ]
+            },
+            {
+                id: 4,
+                question: "How important is discretion to you?",
+                options: [
+                    {
+                        icon: "fas fa-eye-slash",
+                        title: "Very Important",
+                        description: "Need completely discreet products that don't look obvious",
+                        value: "high"
+                    },
+                    {
+                        icon: "fas fa-low-vision",
+                        title: "Somewhat Important",
+                        description: "Prefer subtle designs but okay with some recognizable features",
+                        value: "medium"
+                    },
+                    {
+                        icon: "fas fa-eye",
+                        title: "Not a Concern",
+                        description: "Comfortable with any design, aesthetics matter more than discretion",
+                        value: "low"
+                    }
+                ]
+            },
+            {
+                id: 5,
+                question: "What's your preferred intensity level?",
+                options: [
+                    {
+                        icon: "fas fa-feather",
+                        title: "Gentle & Soft",
+                        description: "Prefer light, teasing sensations and gentle stimulation",
+                        value: "gentle"
+                    },
+                    {
+                        icon: "fas fa-adjust",
+                        title: "Medium Intensity",
+                        description: "Want noticeable stimulation that's not too overwhelming",
+                        value: "medium"
+                    },
+                    {
+                        icon: "fas fa-bolt",
+                        title: "Powerful & Intense",
+                        description: "Enjoy strong, deep stimulation and powerful sensations",
+                        value: "intense"
+                    }
+                ]
+            },
+            {
+                id: 6,
+                question: "Are you shopping for solo or couples use?",
+                options: [
+                    {
+                        icon: "fas fa-user",
+                        title: "Solo Use",
+                        description: "Looking for products primarily for personal enjoyment",
+                        value: "solo"
+                    },
+                    {
+                        icon: "fas fa-users",
+                        title: "Couples Play",
+                        description: "Want products to enhance intimacy with my partner",
+                        value: "couple"
+                    },
+                    {
+                        icon: "fas fa-user-friends",
+                        title: "Both",
+                        description: "Need versatile products that work well solo and with partner",
+                        value: "versatile"
+                    }
+                ]
+            },
+            {
+                id: 7,
+                question: "What features matter most to you?",
+                options: [
+                    {
+                        icon: "fas fa-mobile-alt",
+                        title: "App Control",
+                        description: "Want smart features and smartphone connectivity",
+                        value: "smart"
+                    },
+                    {
+                        icon: "fas fa-battery-full",
+                        title: "Long Battery Life",
+                        description: "Need reliable, long-lasting power for extended sessions",
+                        value: "battery"
+                    },
+                    {
+                        icon: "fas fa-volume-mute",
+                        title: "Whisper Quiet",
+                        description: "Discretion and ultra-quiet operation are essential",
+                        value: "quiet"
+                    },
+                    {
+                        icon: "fas fa-tint",
+                        title: "Waterproof",
+                        description: "Want products I can use in the bath or shower",
+                        value: "waterproof"
+                    }
+                ]
+            },
+            {
+                id: 8,
+                question: "What's your budget range?",
+                options: [
+                    {
+                        icon: "fas fa-seedling",
+                        title: "Budget Friendly",
+                        description: "₦15,000 - ₦30,000 - Great quality at accessible prices",
+                        value: "budget"
+                    },
+                    {
+                        icon: "fas fa-star",
+                        title: "Premium",
+                        description: "₦30,000 - ₦60,000 - High-quality materials and features",
+                        value: "premium"
+                    },
+                    {
+                        icon: "fas fa-crown",
+                        title: "Luxury",
+                        description: "₦60,000+ - Top-tier products with premium materials",
+                        value: "luxury"
+                    }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+
+        function initQuiz() {
+            showQuestion(currentQuestion);
+        }
+
+        function showQuestion(index) {
+            const question = quizQuestions[index];
+            const container = document.getElementById('quizContainer');
+            
+            container.innerHTML = `
+                <div class="quiz-question">
+                    <div class="question-number">Question ${index + 1} of ${quizQuestions.length}</div>
+                    <h2 class="question-title">${question.question}</h2>
+                    <div class="quiz-options">
+                        ${question.options.map((option, optionIndex) => `
+                            <div class="quiz-option" onclick="selectOption(${index}, '${option.value}', this)">
+                                <div class="option-header">
+                                    <div class="option-icon">
+                                        <i class="${option.icon}"></i>
+                                    </div>
+                                    <div class="option-title">${option.title}</div>
+                                </div>
+                                <div class="option-description">${option.description}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Update progress
+            const progress = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Question ${index + 1} of ${quizQuestions.length}`;
+
+            // Update navigation
+            document.getElementById('prevBtn').style.display = index > 0 ? 'block' : 'none';
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('nextBtn').disabled = !answers[index];
+        }
+
+        function selectOption(questionIndex, value, element) {
+            // Remove previous selection
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selection
+            element.classList.add('selected');
+            answers[questionIndex] = value;
+            
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            const recommendations = generateRecommendations(answers);
+            
+            document.getElementById('quizProgress').style.display = 'none';
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizNavigation').style.display = 'none';
+            
+            const resultsContainer = document.getElementById('quizResults');
+            resultsContainer.style.display = 'block';
+            
+            resultsContainer.innerHTML = `
+                <div class="quiz-results">
+                    <div class="results-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h2 class="results-title">Your Personalized Recommendations</h2>
+                    <p class="results-description">
+                        Based on your responses, we've curated a selection of products that align with your preferences, 
+                        experience level, and wellness goals. Each recommendation includes why it's perfect for you.
+                    </p>
+                    
+                    <div class="recommended-products">
+                        ${recommendations.map(product => `
+                            <div class="product-recommendation">
+                                <div class="product-match">${product.match}% Match</div>
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-description">${product.description}</p>
+                                <div class="product-price" style="color: var(--magenta-600); font-weight: 600; font-size: 1.1rem;">
+                                    ${product.price}
+                                </div>
+                                <button class="btn btn-primary w-full mt-3" onclick="addToCart('${product.id}')">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="quiz-restart">
+                        <button class="btn btn-secondary" onclick="restartQuiz()">
+                            <i class="fas fa-redo"></i>
+                            Take Quiz Again
+                        </button>
+                        <a href="../index.html#shop" class="btn btn-primary ml-4">
+                            <i class="fas fa-shopping-bag"></i>
+                            View All Products
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateRecommendations(answers) {
+            // Simple recommendation logic based on answers
+            const recommendations = [];
+            
+            if (answers[0] === 'personal' && answers[1] === 'beginner') {
+                recommendations.push({
+                    id: 'rose-luxe-vibrator',
+                    name: 'Rose Luxe Vibrator',
+                    description: 'Perfect for beginners with gentle vibration modes and premium silicone construction. Whisper-quiet operation for complete discretion.',
+                    price: '₦45,800',
+                    match: 95
+                });
+            }
+            
+            if (answers[5] === 'couple' || answers[5] === 'versatile') {
+                recommendations.push({
+                    id: 'couples-ring-set',
+                    name: 'Couples Ring Set',
+                    description: 'App-controlled vibrating rings designed for enhanced intimacy. Perfect for couples looking to explore together.',
+                    price: '₦49,500',
+                    match: 92
+                });
+            }
+            
+            if (answers[0] === 'health' || answers[4] === 'gentle') {
+                recommendations.push({
+                    id: 'smart-kegel-trainer',
+                    name: 'Smart Kegel Trainer',
+                    description: 'Scientifically designed for pelvic floor health with biofeedback technology and progressive training programs.',
+                    price: '₦38,250',
+                    match: 88
+                });
+            }
+            
+            // Default recommendations if none match
+            if (recommendations.length === 0) {
+                recommendations.push(
+                    {
+                        id: 'organic-wellness-kit',
+                        name: 'Organic Wellness Kit',
+                        description: 'Complete starter set with natural lubricants, pH-balanced cleansers, and educational materials.',
+                        price: '₦26,750',
+                        match: 85
+                    },
+                    {
+                        id: 'luxury-care-essentials',
+                        name: 'Luxury Care Essentials',
+                        description: 'Premium care bundle with cleaner, storage solutions, and maintenance guide for product longevity.',
+                        price: '₦22,400',
+                        match: 78
+                    }
+                );
+            }
+            
+            return recommendations.slice(0, 3); // Return top 3 recommendations
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = {};
+            
+            document.getElementById('quizProgress').style.display = 'block';
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('quizNavigation').style.display = 'flex';
+            document.getElementById('quizResults').style.display = 'none';
+            
+            initQuiz();
+        }
+
+        // Initialize quiz when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check age verification
+            if (!localStorage.getItem('ageVerified')) {
+                document.getElementById('ageGate').style.display = 'flex';
+            }
+            
+            initQuiz();
+        });
+
+        // Age gate functions
+        function acceptAge() {
+            localStorage.setItem('ageVerified', 'true');
+            document.getElementById('ageGate').style.display = 'none';
+        }
+
+        function declineAge() {
+            window.location.href = 'https://www.google.com';
+        }
+
+        // Mock add to cart function
+        function addToCart(productId) {
+            alert('Product added to cart! (This would integrate with your cart system)');
+            // Update cart badge
+            const badge = document.getElementById('cartBadge');
+            const currentCount = parseInt(badge.textContent);
+            badge.textContent = currentCount + 1;
+        }
+
+        // Discreet mode toggle
+        function toggleDiscreetMode() {
+            const icon = document.getElementById('discreteIcon');
+            const isDiscreet = icon.classList.contains('fa-eye-slash');
+            
+            if (isDiscreet) {
+                icon.className = 'fas fa-eye text-xl';
+                document.title = 'Wellness Quiz - Find Your Perfect Products | Erotica Lifestyle';
+            } else {
+                icon.className = 'fas fa-eye-slash text-xl';
+                document.title = 'Personal Wellness Assessment';
+            }
+        }
+    </script>
+</body>
+</html>
