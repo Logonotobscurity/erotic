@@ -28,19 +28,7 @@ jobs:
           npm install
         fi
         
-    - name: Validate HTML
-      run: |
-        npx html-validate index.html || true
-        
-    - name: Lint CSS
-      run: |
-        echo "CSS linting would go here"
-        
-    - name: Test JavaScript
-      run: |
-        echo "JavaScript tests would go here"
-        
-    - name: Build (if needed)
+    - name: Build and Validate
       run: |
         npm run build
         

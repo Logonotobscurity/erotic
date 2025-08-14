@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="./css/components/navigation.css">
     <link rel="stylesheet" href="./css/components/hero.css">
     <link rel="stylesheet" href="./css/components/products.css">
+    <link rel="stylesheet" href="./css/components/product-cards-enhanced.css">
     <link rel="stylesheet" href="./css/components/modal.css">
     <link rel="stylesheet" href="./css/components/forms.css">
     <link rel="stylesheet" href="./css/utils/animations.css">
@@ -77,9 +78,9 @@
                 Erotica Lifestyle
             </div>
             <div class="flex items-center gap-6">
-                <button onclick="toggleDiscreetMode()" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode">
-                    <i class="fas fa-eye text-xl" id="discreteIcon"></i>
-                </button>
+            <button data-action="toggle-discrete" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode">
+                <i class="fas fa-eye text-xl" id="discreteIcon"></i>
+            </button>
                 <button class="text-plum hover:text-magenta transition-colors relative" title="Shopping Cart">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span class="absolute -top-2 -right-2 bg-magenta text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartBadge">0</span>
@@ -101,12 +102,12 @@
             <p class="text-xl mb-12 max-w-2xl mx-auto opacity-90">
                 Premium adult wellness products for women & couples delivered across Africa in plain, secure packaging.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#shop" class="btn btn-primary text-lg">
+            <div class="hero-actions">
+                <a href="#shop" class="btn-hero-primary">
                     <i class="fas fa-shopping-bag"></i>
                     Shop Best-Sellers
                 </a>
-                <a href="./pages/quiz.html" class="btn btn-ghost text-lg">
+                <a href="pages/quiz.html" class="btn-hero-secondary">
                     <i class="fas fa-clipboard-list"></i>
                     Take the Quiz
                 </a>
@@ -142,9 +143,9 @@
                         <div class="product-badge">
                             <span class="badge badge-primary">Bestseller</span>
                         </div>
-                        <button class="product-quickview" onclick="openQuickView('rose-luxe-vibrator')" title="Quick View">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                <button class="product-quickview" data-action="quick-view" data-product-id="rose-luxe-vibrator" title="Quick View">
+                    <i class="fas fa-eye"></i>
+                </button>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Rose Luxe Vibrator</h3>
@@ -162,13 +163,13 @@
                         <div class="product-footer">
                             <div class="product-price">₦45,800</div>
                             <div class="product-actions">
-                                <button class="product-btn" onclick="addToCart('rose-luxe-vibrator')">
-                                    <i class="fas fa-cart-plus"></i>
-                                    Add to Cart
-                                </button>
-                                <button class="product-btn-wishlist" onclick="toggleWishlist('rose-luxe-vibrator')" title="Add to Wishlist">
-                                    <i class="fas fa-heart"></i>
-                                </button>
+                        <button class="product-btn" data-action="add-to-cart" data-product-id="rose-luxe-vibrator">
+                            <i class="fas fa-cart-plus"></i>
+                            Add to Cart
+                        </button>
+                        <button class="product-btn-wishlist" data-action="toggle-wishlist" data-product-id="rose-luxe-vibrator" title="Add to Wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
                             </div>
                         </div>
                     </div>
@@ -181,9 +182,9 @@
                         <div class="product-badge">
                             <span class="badge badge-success">New</span>
                         </div>
-                        <button class="product-quickview" onclick="openQuickView('couples-ring-set')" title="Quick View">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                <button class="product-quickview" data-action="quick-view" data-product-id="couples-ring-set" title="Quick View">
+                    <i class="fas fa-eye"></i>
+                </button>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Couples Ring Set</h3>
@@ -1022,12 +1023,10 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./js/modules/ageGate.js"></script>
-    <script src="./js/modules/cart.js"></script>
-    <script src="./js/modules/productFilter.js"></script>
-    <script src="./js/modules/navigation.js"></script>
-    <script src="./js/modules/forms.js"></script>
-    <script src="./js/modules/notifications.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- Legacy support for older browsers -->
+    <script nomodule src="./js/main.js"></script>
+    
+    <!-- Modern ES6 Module approach -->
+    <script type="module" src="./js/app.js"></script>
 </body>
 </html>

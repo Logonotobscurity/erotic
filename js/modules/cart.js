@@ -3,16 +3,25 @@
  * Handles cart functionality including add, remove, update quantities
  */
 
+import { AppConfig } from '../config/app-config.js';
+import { eventBus } from '../core/event-bus.js';
+import { getFromStorage, saveToStorage } from '../utils/helpers.js';
+import { productManager } from './product-manager.js';
+
 class ShoppingCart {
   constructor() {
-    this.cart = this.loadCart();
-    this.cartBadge = document.getElementById('cartBadge');
-    this.init();
+    this.items = new Map();
+    this.storageKey = AppConfig.storage.cart;
+    this.cartBadge = null;
   }
 
+  /**
+   * Initialize the cart
+   */
   init() {
-    this.updateCartBadge();
+    this.loadCart();
     this.bindEvents();
+    this.updateUI();
     console.log('🛒 Shopping Cart initialized');
   }
 
@@ -59,99 +68,118 @@ class ShoppingCart {
     });
   }
 
-  // Load cart from localStorage
+  /**
+   * Load cart from storage
+   */
   loadCart() {
-    try {
-      const cartData = localStorage.getItem('erotica_cart');
-      return cartData ? JSON.parse(cartData) : {};
-    } catch (error) {
-      console.warn('Error loading cart from localStorage:', error);
-      return {};
-    }
+    const saved = getFromStorage(this.storageKey, {});
+    this.items = new Map(Object.entries(saved));
   }
 
-  // Save cart to localStorage
+  /**
+   * Save cart to storage
+   */
   saveCart() {
-    try {
-      localStorage.setItem('erotica_cart', JSON.stringify(this.cart));
-    } catch (error) {
-      console.warn('Error saving cart to localStorage:', error);
-    }
+    const cartObject = Object.fromEntries(this.items);
+    saveToStorage(this.storageKey, cartObject);
   }
 
-  // Add item to cart
-  addToCart(productId, quantity = 1) {
-    if (!productId) {return false;}
+  /**
+   * Add item to cart
+   * @param {string} productId - Product ID
+   * @param {number} quantity - Quantity to add
+   * @returns {boolean} Success status
+   */
+  add(productId, quantity = 1) {
+    if (!productId) return false;
 
-    // Get product data (in a real app, this would come from an API)
-    const productData = this.getProductData(productId);
-    if (!productData) {
+    const product = productManager.getProduct(productId);
+    if (!product) {
       console.warn('Product not found:', productId);
       return false;
     }
 
     // Add or update cart item
-    if (this.cart[productId]) {
-      this.cart[productId].quantity += quantity;
+    if (this.items.has(productId)) {
+      const item = this.items.get(productId);
+      item.quantity += quantity;
     } else {
-      this.cart[productId] = {
+      this.items.set(productId, {
         id: productId,
-        name: productData.name,
-        price: productData.price,
+        name: product.name,
+        price: product.price,
         quantity,
-        image: productData.image || null,
         addedAt: new Date().toISOString()
-      };
+      });
     }
 
     this.saveCart();
-    this.updateCartBadge();
-    this.showCartNotification('added', productData.name);
+    this.updateUI();
     
-    // Dispatch custom event for other modules
-    this.dispatchCartEvent('cart:item-added', {
+    // Emit events
+    eventBus.emit('cart:item-added', {
       productId,
       quantity,
       totalItems: this.getTotalItems()
     });
-
-    return true;
-  }
-
-  // Remove item from cart
-  removeFromCart(productId) {
-    if (!productId || !this.cart[productId]) {return false;}
-
-    const productName = this.cart[productId].name;
-    delete this.cart[productId];
     
-    this.saveCart();
-    this.updateCartBadge();
-    this.showCartNotification('removed', productName);
-    
-    // Dispatch custom event
-    this.dispatchCartEvent('cart:item-removed', {
-      productId,
-      totalItems: this.getTotalItems()
+    eventBus.emit('notification:show', {
+      message: `${product.name} added to cart!`,
+      type: 'success'
     });
 
     return true;
   }
 
-  // Update item quantity
+  /**
+   * Remove item from cart
+   * @param {string} productId - Product ID
+   * @returns {boolean} Success status
+   */
+  remove(productId) {
+    if (!productId || !this.items.has(productId)) return false;
+
+    const item = this.items.get(productId);
+    this.items.delete(productId);
+    
+    this.saveCart();
+    this.updateUI();
+    
+    // Emit events
+    eventBus.emit('cart:item-removed', {
+      productId,
+      totalItems: this.getTotalItems()
+    });
+    
+    eventBus.emit('notification:show', {
+      message: `${item.name} removed from cart`,
+      type: 'info'
+    });
+
+    return true;
+  }
+
+  /**
+   * Update item quantity
+   * @param {string} productId - Product ID
+   * @param {number} quantity - New quantity
+   * @returns {boolean} Success status
+   */
   updateQuantity(productId, quantity) {
-    if (!productId || !this.cart[productId]) {return false;}
+    if (!productId || !this.items.has(productId)) return false;
 
     if (quantity <= 0) {
-      return this.removeFromCart(productId);
+      return this.remove(productId);
     }
 
-    this.cart[productId].quantity = quantity;
-    this.saveCart();
-    this.updateCartBadge();
+    const item = this.items.get(productId);
+    item.quantity = quantity;
     
-    // Dispatch custom event
-    this.dispatchCartEvent('cart:quantity-updated', {
+    this.saveCart();
+    this.updateUI();
+    
+    // Emit event
+    eventBus.emit('cart:quantity-updated', {
       productId,
       quantity,
       totalItems: this.getTotalItems()
@@ -160,43 +188,69 @@ class ShoppingCart {
     return true;
   }
 
-  // Clear entire cart
-  clearCart() {
-    this.cart = {};
+  /**
+   * Clear entire cart
+   */
+  clear() {
+    this.items.clear();
     this.saveCart();
-    this.updateCartBadge();
+    this.updateUI();
     
-    // Dispatch custom event
-    this.dispatchCartEvent('cart:cleared', {
+    // Emit events
+    eventBus.emit('cart:cleared', {
       totalItems: 0
     });
-
-    this.showCartNotification('cleared', 'Cart');
+    
+    eventBus.emit('notification:show', {
+      message: 'Cart cleared',
+      type: 'info'
+    });
   }
 
-  // Get cart items
-  getCartItems() {
-    return Object.values(this.cart);
+  /**
+   * Get cart items
+   * @returns {Array} Array of cart items
+   */
+  getItems() {
+    return Array.from(this.items.values());
   }
 
-  // Get total number of items
+  /**
+   * Get total number of items
+   * @returns {number} Total item count
+   */
   getTotalItems() {
-    return Object.values(this.cart).reduce((total, item) => total + item.quantity, 0);
+    return Array.from(this.items.values()).reduce((total, item) => total + item.quantity, 0);
   }
 
-  // Get cart total value
-  getCartTotal() {
-    return Object.values(this.cart).reduce((total, item) => {
+  /**
+   * Get cart total value
+   * @returns {number} Total cart value
+   */
+  getTotal() {
+    return Array.from(this.items.values()).reduce((total, item) => {
       return total + (item.price * item.quantity);
     }, 0);
   }
 
-  // Update cart badge
-  updateCartBadge() {
-    if (!this.cartBadge) {return;}
+  /**
+   * Check if cart has item
+   * @param {string} productId - Product ID
+   * @returns {boolean} Has item
+   */
+  has(productId) {
+    return this.items.has(productId);
+  }
+
+  /**
+   * Update UI elements
+   */
+  updateUI() {
+    this.cartBadge = this.cartBadge || document.getElementById('cartBadge');
     
-    const totalItems = this.getTotalItems();
-    this.cartBadge.textContent = totalItems;
+    if (this.cartBadge) {
+      const totalItems = this.getTotalItems();
+      this.cartBadge.textContent = totalItems;
     
     // Add visual feedback for cart updates
     if (totalItems > 0) {
