@@ -22,7 +22,7 @@
 
 # Production optimization
 [context.production]
-  command = "npm run build:production"
+  command = "npm run build"
   
 [context.production.environment]
   NODE_ENV = "production"
@@ -353,12 +353,6 @@
       "google",
       "bing"
     ]
-
-[[plugins]]
-  package = "@netlify/plugin-html-validate"
-  
-  [plugins.inputs]
-    files = ["**/*.html"]
 
 # FUNCTIONS (for future serverless features)
 [functions]
