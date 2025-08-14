@@ -6,18 +6,13 @@
   "scripts": {
     "start": "python -m http.server 8000 || npx serve . -s",
     "dev": "npx serve . -s -l 3000",
-    "build": "npm run optimize && npm run generate-sitemap",
-    "build:production": "npm run optimize:production && npm run generate-sitemap",
-    "build:staging": "npm run optimize && npm run generate-sitemap",
-    "build:preview": "npm run optimize && npm run generate-sitemap",
-    "clean": "rimraf dist reports || echo 'Clean completed'",
-    "optimize": "npm run minify:css && npm run minify:js",
-    "optimize:production": "npm run minify:css:prod && npm run minify:js:prod",
-    "minify:css": "cleancss -o css/main.min.css css/main.css css/components/*.css || echo 'CSS minify completed'",
-    "minify:css:prod": "cleancss --s1 --compatibility ie8 -o css/main.min.css css/main.css css/components/*.css || echo 'CSS minify prod completed'",
-    "minify:js": "terser js/main.js js/modules/*.js -o js/bundle.min.js --compress --mangle || echo 'JS minify completed'",
-    "minify:js:prod": "terser js/main.js js/modules/*.js -o js/bundle.min.js --compress --mangle --toplevel || echo 'JS minify prod completed'",
-    "optimize:images": "echo 'Image optimization skipped - will be handled by Netlify'",
+    "build": "npm run generate-sitemap",
+    "build:production": "npm run generate-sitemap",
+    "build:staging": "npm run generate-sitemap",
+    "build:preview": "npm run generate-sitemap",
+    "clean": "echo 'No build files to clean - using source files directly'",
+    "optimize": "echo 'Using source files directly - no minification'",
+    "optimize:production": "echo 'Using source files directly - no minification'",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "validate": "html-validate **/*.html --config .htmlvalidate.json || echo 'HTML validation completed'",
     "test": "echo 'Tests passed'",
@@ -76,17 +71,5 @@
     "rimraf": "^5.0.10",
     "serve": "^14.0.0",
     "terser": "^5.43.1"
-  },
-  "bundlesize": [
-    {
-      "path": "css/main.min.css",
-      "maxSize": "50 kB",
-      "compression": "gzip"
-    },
-    {
-      "path": "js/bundle.min.js",
-      "maxSize": "100 kB",
-      "compression": "gzip"
-    }
-  ]
+  }
 }

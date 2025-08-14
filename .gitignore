@@ -32,6 +32,12 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+# Minified files (using source files directly)
+*.min.css
+*.min.js
+bundle.js
+bundle.min.js
+
 # Dependency directories
 jspm_packages/
 
