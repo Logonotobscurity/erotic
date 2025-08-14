@@ -198,6 +198,29 @@ p {
 .bg-sand { background-color: var(--sand-100); }
 
 /* ================================
+   ACCESSIBILITY UTILITIES
+   ================================ */
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible for keyboard navigation */
+.focus-visible:focus {
+    outline: 2px solid var(--magenta-500);
+    outline-offset: 2px;
+}
+
+/* ================================
    LAYOUT SYSTEM
    ================================ */
 

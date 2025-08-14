@@ -16,12 +16,19 @@
     <meta property="og:description" content="Discreet premium adult wellness products delivered across Africa">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eroticalifestyle.com">
-    <meta property="og:image" content="./images/banners/og-banner.jpg">
+    <meta property="og:image" content="https://eroticalifestyle.com/images/banners/og-banner.jpg">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Erotica Lifestyle - Premium Adult Wellness">
     <meta name="twitter:description" content="Discreet premium adult wellness products delivered across Africa">
+    <meta name="twitter:image" content="https://eroticalifestyle.com/images/banners/og-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://eroticalifestyle.com/">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
@@ -47,6 +54,37 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Erotica Lifestyle",
+        "description": "Africa's premier discreet adult wellness store for women & couples. Premium products, secure delivery.",
+        "url": "https://eroticalifestyle.com",
+        "logo": "https://eroticalifestyle.com/assets/icons/icon-512x512.png",
+        "image": "https://eroticalifestyle.com/images/banners/og-banner.jpg",
+        "telephone": "+234-812-345-6789",
+        "email": "support@eroticalifestyle.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lagos",
+            "addressCountry": "NG"
+        },
+        "priceRange": "₦₦₦",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://instagram.com/eroticalifestyle",
+            "https://twitter.com/eroticalifestyle"
+        ],
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://eroticalifestyle.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Age Gate Modal -->
@@ -79,15 +117,18 @@
                 Erotica Lifestyle
             </div>
             <div class="flex items-center gap-6">
-            <button data-action="toggle-discrete" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode">
-                <i class="fas fa-eye text-xl" id="discreteIcon"></i>
+            <button data-action="toggle-discrete" class="text-plum hover:text-magenta transition-colors" title="Toggle Discreet Mode" aria-label="Toggle Discreet Mode">
+                <i class="fas fa-eye text-xl" id="discreteIcon" aria-hidden="true"></i>
+                <span class="sr-only">Toggle Discreet Mode</span>
             </button>
-                <button class="text-plum hover:text-magenta transition-colors relative" title="Shopping Cart">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-magenta text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartBadge">0</span>
+                <button class="text-plum hover:text-magenta transition-colors relative" title="Shopping Cart" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl" aria-hidden="true"></i>
+                    <span class="absolute -top-2 -right-2 bg-magenta text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cartBadge" aria-label="Cart items">0</span>
+                    <span class="sr-only">Shopping Cart</span>
                 </button>
-                <button onclick="toggleMenu()" class="text-plum hover:text-magenta transition-colors md:hidden">
-                    <i class="fas fa-bars text-xl"></i>
+                <button onclick="toggleMenu()" class="text-plum hover:text-magenta transition-colors md:hidden" aria-label="Toggle Menu">
+                    <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                    <span class="sr-only">Toggle Menu</span>
                 </button>
             </div>
         </div>
@@ -974,14 +1015,14 @@
                     <h3 class="text-2xl font-display font-bold mb-4">Erotica Lifestyle</h3>
                     <p class="text-sm opacity-90 mb-6">Africa's premier discreet adult wellness destination for women and couples.</p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform" aria-label="Follow us on Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="#" class="w-10 h-10 bg-magenta rounded-full flex items-center justify-center hover:scale-105 transition-transform" aria-label="Contact us on WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

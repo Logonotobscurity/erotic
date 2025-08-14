@@ -41,8 +41,8 @@ Disallow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://logonotobscurity.netlify.app/sitemap.xml
+Sitemap: https://eroticalifestyle.com/sitemap.xml
 
 # Additional sitemaps (for future expansion)
-# Sitemap: https://logonotobscurity.netlify.app/sitemap-products.xml
-# Sitemap: https://logonotobscurity.netlify.app/sitemap-blog.xml
+# Sitemap: https://eroticalifestyle.com/sitemap-products.xml
+# Sitemap: https://eroticalifestyle.com/sitemap-blog.xml
