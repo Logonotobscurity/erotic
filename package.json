@@ -60,20 +60,20 @@
     "not ie 11"
   ],
   "devDependencies": {
-    "serve": "^14.0.0",
-    "clean-css-cli": "^5.6.2",
-    "terser": "^5.19.2",
-    "rimraf": "^5.0.1",
+    "@lhci/cli": "^0.12.0",
+    "bundlesize": "^0.18.2",
+    "clean-css-cli": "^5.6.3",
+    "eslint": "^8.45.0",
+    "html-validate": "^8.2.0",
     "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-svgo": "^10.0.1",
-    "html-validate": "^8.2.0",
-    "eslint": "^8.45.0",
-    "@lhci/cli": "^0.12.0",
     "netlify-cli": "^15.10.0",
-    "bundlesize": "^0.18.2"
+    "rimraf": "^5.0.10",
+    "serve": "^14.0.0",
+    "terser": "^5.43.1"
   },
   "bundlesize": [
     {
