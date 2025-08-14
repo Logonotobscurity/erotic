@@ -1,0 +1,48 @@
+# Robots.txt for Erotica Lifestyle Website
+# Adult content website - 18+ only
+
+User-agent: *
+# Allow all well-behaved crawlers
+Disallow: /admin/
+Disallow: /.env*
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /scripts/
+Disallow: /netlify/
+
+# Adult content specific
+# Some conservative crawlers may choose not to index
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block potential scrapers and unwanted bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://logonotobscurity.netlify.app/sitemap.xml
+
+# Additional sitemaps (for future expansion)
+# Sitemap: https://logonotobscurity.netlify.app/sitemap-products.xml
+# Sitemap: https://logonotobscurity.netlify.app/sitemap-blog.xml
