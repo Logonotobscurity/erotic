@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="./css/utils/animations.css">
     <link rel="stylesheet" href="./css/utils/responsive.css">
     <link rel="stylesheet" href="./css/accessibility-improvements.css">
+    <link rel="stylesheet" href="./css/components/quiz.css">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -107,10 +108,10 @@
                     <i class="fas fa-shopping-bag"></i>
                     Shop Best-Sellers
                 </a>
-                <a href="pages/quiz.html" class="btn-hero-secondary">
+                <button class="btn-hero-secondary" data-action="start-quiz">
                     <i class="fas fa-clipboard-list"></i>
                     Take the Quiz
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -1023,10 +1024,18 @@
     </footer>
 
     <!-- Scripts -->
-    <!-- Legacy support for older browsers -->
-    <script nomodule src="./js/main.js"></script>
+    <!-- Core Modules -->
+    <script src="./js/modules/ageGate.js"></script>
+    <script src="./js/modules/cart.js"></script>
+    <script src="./js/modules/navigation.js"></script>
+    <script src="./js/modules/productFilter.js"></script>
+    <script src="./js/modules/product-manager.js"></script>
+    <script src="./js/modules/forms.js"></script>
+    <script src="./js/modules/notifications.js"></script>
+    <script src="./js/modules/discrete-mode.js"></script>
+    <script src="./js/modules/quiz.js"></script>
     
-    <!-- Modern ES6 Module approach -->
-    <script type="module" src="./js/app.js"></script>
+    <!-- Main Application -->
+    <script src="./js/main.js"></script>
 </body>
 </html>
