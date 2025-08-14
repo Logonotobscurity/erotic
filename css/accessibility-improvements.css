@@ -1,0 +1,395 @@
+/* ================================
+   ACCESSIBILITY & CONTRAST IMPROVEMENTS
+   WCAG 2.1 AA Compliance Updates
+   ================================ */
+
+/* ================================
+   OUR STORY SECTION IMPROVEMENTS
+   ================================ */
+
+/* Ensure proper contrast on sand background */
+#story {
+  background: linear-gradient(135deg, var(--sand-100) 0%, #f8f4ef 100%);
+}
+
+/* Main story heading - ensure strong contrast */
+#story h2.text-plum {
+  color: var(--plum-900); /* #2E1037 on #F5F1EC - WCAG AA compliant */
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(46, 16, 55, 0.1);
+}
+
+/* Story description text - improved readability */
+#story .text-gray-700 {
+  color: var(--charcoal-800); /* #2D2D2D - Better contrast ratio */
+  font-size: 1.125rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Glass cards in Our Story section */
+#story .glass-card {
+  background: rgba(255, 255, 255, 0.98); /* Increased opacity for better readability */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 32px rgba(46, 16, 55, 0.08),
+    0 4px 16px rgba(46, 16, 55, 0.04);
+}
+
+/* Icon circles in Our Story cards */
+#story .glass-card .bg-magenta {
+  background: linear-gradient(135deg, var(--magenta-500) 0%, var(--magenta-600) 100%);
+  box-shadow: 0 4px 12px rgba(230, 0, 126, 0.3);
+}
+
+/* Card headings - ensure proper contrast */
+#story .glass-card h3.text-plum {
+  color: var(--plum-900); /* #2E1037 on white background - WCAG AAA compliant */
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Card descriptions - improved readability */
+#story .glass-card .text-gray-600 {
+  color: var(--charcoal-700); /* #404040 - Better contrast ratio */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ================================
+   PARTNER NETWORK SECTION IMPROVEMENTS
+   ================================ */
+
+/* Section background for better contrast */
+#partners {
+  background: linear-gradient(135deg, var(--sand-100) 0%, #f8f4ef 100%);
+}
+
+/* Main partners heading - pure black */
+#partners h2.text-plum,
+#partners h2 {
+  color: #000000 !important; /* Pure black for maximum readability */
+  font-weight: 700;
+  text-shadow: none; /* Remove shadow for pure black text */
+}
+
+/* Partners description text - pure black */
+#partners .text-gray-600,
+#partners p {
+  color: #000000 !important; /* Pure black for maximum readability */
+  font-size: 1.125rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Partner card base styling - white background cards */
+.partner-card {
+  background: #ffffff; /* Pure white for maximum contrast */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 20px rgba(46, 16, 55, 0.08),
+    0 8px 40px rgba(46, 16, 55, 0.04);
+  border: 1px solid rgba(46, 16, 55, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partner-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 40px rgba(46, 16, 55, 0.12),
+    0 16px 64px rgba(46, 16, 55, 0.08);
+  border-color: rgba(46, 16, 55, 0.1);
+}
+
+/* Partner header backgrounds - gradient headers with white text */
+.partner-card .partner-header {
+  padding: 32px 24px;
+  text-align: center;
+  color: #ffffff; /* Pure white text */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Black text on gradient backgrounds for better readability */
+.partner-header .partner-title,
+.partner-header .partner-subtitle {
+  color: #000000 !important; /* Pure black text for maximum readability */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); /* White shadow for contrast on gradients */
+}
+
+/* Keep icons white on gradient backgrounds */
+.partner-header i {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.partner-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800; /* Bolder for better visibility on gradients */
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.partner-subtitle {
+  font-size: 0.875rem;
+  opacity: 1; /* Full opacity for black text */
+  font-weight: 600; /* Bolder for better visibility on gradients */
+  position: relative;
+  z-index: 2;
+}
+
+/* Partner content area - white background with dark text */
+.partner-content {
+  padding: 28px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+/* Section headings in partner cards */
+.partner-benefits h4,
+.partner-requirements h4 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000000; /* Pure black for maximum readability */
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+/* List items - pure black text for maximum contrast */
+.benefit-list li,
+.requirement-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #000000; /* Pure black text for maximum readability */
+  font-weight: 400;
+}
+
+/* Benefit list icons - magenta color */
+.benefit-list i {
+  color: var(--magenta-600) !important; /* #C5006B - Darker magenta for better contrast */
+  font-size: 0.875rem;
+  margin-top: 3px;
+  min-width: 14px;
+}
+
+/* Requirement list icons - neutral gray */
+.requirement-list i {
+  color: var(--charcoal-600) !important; /* #535353 - Sufficient contrast */
+  font-size: 0.875rem;
+  margin-top: 3px;
+  min-width: 14px;
+}
+
+/* Partnership stats section */
+.partner-stats {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: 
+    0 8px 32px rgba(46, 16, 55, 0.08),
+    0 4px 16px rgba(46, 16, 55, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  margin-top: 48px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+}
+
+/* Stat numbers - improved gradient with better contrast */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--magenta-600) 0%, var(--plum-700) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+/* Fallback for browsers that don't support background-clip */
+.stat-number::before {
+  content: attr(data-number);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--magenta-600);
+  z-index: -1;
+}
+
+/* Stat labels - pure black for maximum readability */
+.stat-label {
+  font-size: 0.875rem;
+  color: #000000 !important; /* Pure black for maximum readability */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+/* ================================
+   RESPONSIVE IMPROVEMENTS
+   ================================ */
+
+@media (max-width: 768px) {
+  /* Our Story section mobile improvements */
+  #story h2.text-plum {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  #story .text-gray-700 {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  #story .glass-card {
+    padding: 24px 20px;
+    margin-bottom: 20px;
+  }
+  
+  #story .glass-card h3 {
+    font-size: 1.125rem;
+  }
+  
+  /* Partner section mobile improvements */
+  #partners h2.text-plum {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .partner-header {
+    padding: 24px 20px !important;
+  }
+  
+  .partner-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .partner-content {
+    padding: 24px 20px !important;
+  }
+  
+  .partner-stats {
+    padding: 32px 24px;
+    margin-top: 32px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* ================================
+   HIGH CONTRAST MODE SUPPORT
+   ================================ */
+
+@media (prefers-contrast: high) {
+  #story .glass-card,
+  .partner-card,
+  .partner-stats {
+    border: 2px solid var(--charcoal-800);
+    background: #ffffff;
+  }
+  
+  #story .glass-card h3,
+  .partner-benefits h4,
+  .partner-requirements h4 {
+    color: #000000;
+    font-weight: 800;
+  }
+  
+  #story .glass-card p,
+  .benefit-list li,
+  .requirement-list li {
+    color: #000000;
+    font-weight: 500;
+  }
+  
+  .stat-number {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+  
+  .stat-label {
+    color: #000000;
+    font-weight: 700;
+  }
+}
+
+/* ================================
+   REDUCED MOTION SUPPORT
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-card,
+  #story .glass-card {
+    transition: none;
+  }
+  
+  .partner-card:hover {
+    transform: none;
+  }
+  
+  .partner-header::before {
+    animation: none;
+  }
+}
+
+/* ================================
+   PRINT STYLES
+   ================================ */
+
+@media print {
+  #story,
+  #partners {
+    background: white !important;
+    color: black !important;
+  }
+  
+  #story .glass-card,
+  .partner-card {
+    background: white !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  
+  .partner-header {
+    background: #f5f5f5 !important;
+    color: black !important;
+  }
+  
+  .benefit-list i,
+  .requirement-list i {
+    color: black !important;
+  }
+}

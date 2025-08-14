@@ -1,0 +1,289 @@
+/* Modal Component Styles */
+
+/* Base Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(46, 16, 55, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content Container */
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal.active .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(46, 16, 55, 0.1);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--plum-900);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--plum-600);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.modal-close:hover {
+  background: rgba(46, 16, 55, 0.1);
+  color: var(--plum-900);
+  transform: rotate(90deg);
+}
+
+/* Modal Body */
+.modal-body {
+  margin-bottom: 1.5rem;
+}
+
+.modal-body p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.modal-body:last-child {
+  margin-bottom: 0;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(46, 16, 55, 0.1);
+}
+
+/* Product Quick View Modal */
+.product-modal .modal-content {
+  max-width: 800px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.product-modal-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--plum-50) 0%, var(--sand-100) 100%);
+  position: relative;
+}
+
+.product-modal-body {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.product-modal-image {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--pink-100) 0%, var(--purple-100) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-modal-details h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--plum-900);
+  margin-bottom: 1rem;
+}
+
+.product-modal-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--magenta-600);
+  margin-bottom: 1.5rem;
+}
+
+.product-modal-description {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.product-modal-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Age Gate Modal Styles */
+.age-gate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(46, 16, 55, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+}
+
+.age-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.age-gate-content {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 480px;
+  width: 90vw;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .product-modal-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+  
+  .modal-footer button {
+    width: 100%;
+  }
+  
+  .age-gate-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .modal {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .modal-title {
+    color: white;
+  }
+  
+  .modal-close {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .product-modal-header {
+    background: linear-gradient(135deg, rgba(46, 16, 55, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%);
+  }
+}
+
+/* Accessibility */
+.modal-content:focus {
+  outline: 2px solid var(--magenta-500);
+  outline-offset: 2px;
+}
+
+.modal-close:focus {
+  outline: 2px solid var(--magenta-500);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .modal {
+    display: none !important;
+  }
+}
