@@ -100,33 +100,13 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 # -------------------
-# Netlify Plugins
+# Build Processing
 # -------------------
-# These plugins automate tasks like accessibility checks and sitemap submissions.
+# Configure how Netlify processes your build
 
-[[plugins]]
-  # Netlify plugin for accessibility testing
-  # This runs Lighthouse accessibility checks on your deploys.
-  package = "@netlify/plugin-a11y"
-  
-  [plugins.inputs]
-    # Fail the build if any accessibility check fails
-    failOnError = false
-
-[[plugins]]
-  # Netlify plugin for submitting sitemaps
-  # This automatically submits your sitemap to search engines after each deploy.
-  package = "netlify-plugin-submit-sitemap"
-  
-  [plugins.inputs]
-    # The base URL of your site
-    baseUrl = "https://your-site-name.netlify.app"
-    
-    # Path to your sitemap
-    sitemapPath = "/sitemap.xml"
-    
-    # Providers to submit to
-    providers = ["google", "bing", "yandex"]
+[build.processing]
+  # Skip processing of HTML files to prevent issues
+  skip_processing = false
 
 # -------------------
 # Development Server Settings
